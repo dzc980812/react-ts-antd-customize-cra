@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-利用 customize-cra 不 reject 配置 react，  
+利用 customize-cra 不 reject 弹出 webpack 配置 react，  
 目前：
 
 1. 配置了 antd 按需加载
