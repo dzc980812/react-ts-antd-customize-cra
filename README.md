@@ -1,5 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+利用 customize-cra 不 reject 配置 react，  
+目前：
+
+1. 配置了 antd 按需加载
+2. 配置了 ts
+3. 配置了 react-router-dom
+4. 配置了 css-modules,使用时文件夹名不需要加.module
+5. 可以自定义配置 css-module,className 名
+6. 自动注入全局 sass
+7. 配置了 postcss-px-to-viewport
+
 ## Available Scripts
 
 In the project directory, you can run:
