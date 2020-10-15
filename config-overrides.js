@@ -111,6 +111,7 @@ module.exports = {
     // 8、设置路径别名，这样就不需要在项目中引用公用组件或一些公用模块的时候写很长很长的路径了，可根据实际需要配置
     addWebpackAlias({
       '@': path.join(__dirname, '/src'),
+      '@components': path.join(__dirname, '/src/components'),
       '@util': path.join(__dirname, '/src/utils'),
       '@static': path.join(__dirname, '/src/static'),
       '@store': path.join(__dirname, '/src/store'),

@@ -4,6 +4,9 @@ import { HomeOutlined } from '@ant-design/icons';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { Link, NavLink } from 'react-router-dom';
 import { propRouterType, propType } from './BasicLayoutType';
+import SelectLang from '@components/SelectLang/index';
+
+import intl from 'react-intl-universal';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -12,7 +15,7 @@ class BasicLayout extends Component<propType> {
 	renderMenu(item: propRouterType) {
 		return (
 			<Menu.Item key={item.path} onClick={() => {}}>
-				<NavLink to={item.path}> {item.name}</NavLink>
+				<NavLink to={item.path}> {intl.get(item.name)}</NavLink>
 			</Menu.Item>
 		);
 	}
@@ -30,11 +33,11 @@ class BasicLayout extends Component<propType> {
 							return !item.children ? (
 								this.renderMenu(item)
 							) : (
-								<SubMenu title={item.name} key={item.path}>
+								<SubMenu title={intl.get(item.name)} key={item.path}>
 									{item.children.map((res: propRouterType) => {
 										return (
 											<Menu.Item key={res.path}>
-												<Link to={res.path}> {res.name}</Link>
+												<Link to={res.path}> {intl.get(res.name)}</Link>
 											</Menu.Item>
 										);
 									})}
@@ -44,6 +47,7 @@ class BasicLayout extends Component<propType> {
 					</Menu>
 				</Sider>
 				<Layout>
+					<SelectLang></SelectLang>
 					<Content style={{ margin: '24px 16px 0' }}>
 						<Breadcrumb>
 							<Breadcrumb.Item>
