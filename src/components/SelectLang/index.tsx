@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Menu, Select } from 'antd';
 import { emit } from '@/utils/emit';
+const { Option } = Select;
 
 class SelectLang extends PureComponent {
 	locales: [string, string] = ['zh_CN', 'en_US'];
@@ -20,8 +20,9 @@ class SelectLang extends PureComponent {
 	};
 
 	handleChange = (val: any) => {
-		this.setState({ currentName: this.languageLabels[this.locales[val.key]] });
-		emit.emit('change_language', this.locales[val.key]);
+		console.log(val);
+		this.setState({ currentName: this.languageLabels[val] });
+		emit.emit('change_language', val);
 	};
 
 	menu = (
@@ -34,11 +35,17 @@ class SelectLang extends PureComponent {
 
 	render() {
 		return (
-			<Dropdown overlay={this.menu}>
-				<span>
-					{this.state.currentName} <DownOutlined />
-				</span>
-			</Dropdown>
+			<div>
+				<Select defaultValue={this.languageLabels[this.initLocales]} style={{ width: 120 }} onChange={(e: any) => this.handleChange(e)}>
+					{this.locales.map((res: any, index: number) => {
+						return (
+							<Option value={res} key={index}>
+								{this.languageLabels[res]}
+							</Option>
+						);
+					})}
+				</Select>
+			</div>
 		);
 	}
 }

@@ -14,7 +14,7 @@ const { Header, Content, Sider } = Layout;
 class BasicLayout extends Component<propType> {
 	renderMenu(item: propRouterType) {
 		return (
-			<Menu.Item key={item.path} onClick={() => {}}>
+			<Menu.Item key={item.path}>
 				<NavLink to={item.path}> {intl.get(item.name)}</NavLink>
 			</Menu.Item>
 		);
